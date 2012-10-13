@@ -24,7 +24,8 @@ public class Questao
 	private Integer idQuestao;
 	private String descricao;
 	private Byte peso;
-	private List  respostas;
+	@ManyToOne(targetEntity=Resposta.class)
+	private List<Resposta>   respostas;
 	public Integer getIdQuestao() {
 		return idQuestao;
 	}
@@ -43,10 +44,10 @@ public class Questao
 	public void setPeso(Byte peso) {
 		this.peso = peso;
 	}
-	public List getRespostas() {
+	public List<Resposta> getRespostas() {
 		return respostas;
 	}
-	public void setRespostas(List respostas) {
+	public void setRespostas(List<Resposta>  respostas) {
 		this.respostas = respostas;
 	}
 	
@@ -72,7 +73,7 @@ public class Questao
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		QuestaoORM other = (QuestaoORM) obj;
+		Questao other = (Questao) obj;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
