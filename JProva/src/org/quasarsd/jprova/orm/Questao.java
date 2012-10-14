@@ -3,14 +3,21 @@ package org.quasarsd.jprova.orm;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CollectionType;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
+
 public class Questao
 	implements Serializable
 {
@@ -24,33 +31,42 @@ public class Questao
 	private Integer idQuestao;
 	private String descricao;
 	private Byte peso;
-	@ManyToOne(targetEntity=Resposta.class)
-	private List<Resposta>   respostas;
+	
+	@OneToMany(mappedBy="resposta", targetEntity=Resposta.class, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Resposta> respostas;
+
 	public Integer getIdQuestao() {
 		return idQuestao;
 	}
+
 	public void setIdQuestao(Integer idQuestao) {
 		this.idQuestao = idQuestao;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 	public Byte getPeso() {
 		return peso;
 	}
+
 	public void setPeso(Byte peso) {
 		this.peso = peso;
 	}
+
 	public List<Resposta> getRespostas() {
 		return respostas;
 	}
-	public void setRespostas(List<Resposta>  respostas) {
+
+	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,7 +80,7 @@ public class Questao
 				+ ((respostas == null) ? 0 : respostas.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -96,4 +112,9 @@ public class Questao
 			return false;
 		return true;
 	}
+	
+	
+	
+	
+	
 }
