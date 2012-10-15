@@ -20,7 +20,7 @@ if(isset($_GET['ok'])=='ok')
 																header("Location:questionario.php?idques=".$qtd_usuario['id_questionarios']."");
 																}
 																elseif($qtd_usuario < 0){
-																							header("Location:index.php?noticia=Usuario não encontrado");
+														 									header("Location:index.php?noticia=Usuario não encontrado");
 																						}
 										}
 																			

@@ -11,7 +11,7 @@ $conectar = mysql_connect($host,$user,$user_pass);
 if($conectar==true){
 echo "Conectado com sucesso!";
 }else{
-echo "Falha na conexão!";
+echo "Falha na conexão!";  
 }
 */
 ?>

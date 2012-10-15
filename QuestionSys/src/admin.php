@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<a href="questionario.php"><h5>Voltar</h5></a>
+<h5><a href="questionario.php">Voltar</a></h5>
 <h1>Administra&ccedil;&atilde;o do question&aacute;rio</h1>
 <h2>Formulario de cria&ccedil;&atilde;o de question&aacute;rio</h2>
 
@@ -18,7 +18,7 @@
     <input type="reset" value="Apagar" />
 </form>
 
-<?php
+<?php 
 if(isset($_GET['idper']))
 {
 	$idper = $_GET['idper'];

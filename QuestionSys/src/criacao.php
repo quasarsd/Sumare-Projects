@@ -1,4 +1,4 @@
-<?php
+<?php  
 include("bd_conexao.php");
 mysql_select_db($banco,$conectar);
 
