@@ -30,7 +30,7 @@ public class QuestaoDAO
 		session.update(questao);
 		session.getTransaction().commit();
 	}
-	public Questao pesquisar(Integer id)
+	public Questao pesquisar(long id)
 	{
 		return (Questao) session.load(Questao.class, id);
 	}

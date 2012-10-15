@@ -30,7 +30,7 @@ public class RespostaDAO
 		session.update(questao);
 		session.getTransaction().commit();
 	}
-	public Resposta pesquisar(Integer id)
+	public Resposta pesquisar(long id)
 	{
 		return (Resposta) session.load(Resposta.class, id);
 	}
