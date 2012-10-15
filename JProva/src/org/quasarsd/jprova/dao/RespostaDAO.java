@@ -1,7 +1,6 @@
 package org.quasarsd.jprova.dao;
 
 import org.hibernate.Session;
-import org.quasarsd.jprova.orm.Questao;
 import org.quasarsd.jprova.orm.Resposta;
 
 public class RespostaDAO

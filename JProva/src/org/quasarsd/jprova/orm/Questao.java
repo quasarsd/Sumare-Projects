@@ -4,42 +4,37 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.CollectionType;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
-
 public class Questao
 	implements Serializable
 {
-	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -306585488585704179L;
+	private static final long serialVersionUID = -9165018818506354961L;
+
 	@Id
 	@GeneratedValue
-	private Integer idQuestao;
-	private String descricao;
-	private Byte peso;
+	private long idQuestao;
 	
-	@OneToMany(mappedBy="resposta", targetEntity=Resposta.class, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private String descricao;
+	
+	private short peso;
+	
+	@OneToMany(mappedBy="questao" , targetEntity=Resposta.class , fetch=FetchType.EAGER , cascade=CascadeType.ALL)
 	private List<Resposta> respostas;
 
-	public Integer getIdQuestao() {
+	public long getIdQuestao() {
 		return idQuestao;
 	}
 
-	public void setIdQuestao(Integer idQuestao) {
+	public void setIdQuestao(long idQuestao) {
 		this.idQuestao = idQuestao;
 	}
 
@@ -51,11 +46,11 @@ public class Questao
 		this.descricao = descricao;
 	}
 
-	public Byte getPeso() {
+	public short getPeso() {
 		return peso;
 	}
 
-	public void setPeso(Byte peso) {
+	public void setPeso(short peso) {
 		this.peso = peso;
 	}
 
@@ -66,6 +61,12 @@ public class Questao
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
 	}
+	
+	@Override
+	public String toString() {
+		return "Questao [idQuestao=" + idQuestao + ", descricao=" + descricao
+				+ ", peso=" + peso + ", respostas=" + respostas + "]";
+	}
 
 	@Override
 	public int hashCode() {
@@ -73,9 +74,8 @@ public class Questao
 		int result = 1;
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result
-				+ ((idQuestao == null) ? 0 : idQuestao.hashCode());
-		result = prime * result + ((peso == null) ? 0 : peso.hashCode());
+		result = prime * result + (int) (idQuestao ^ (idQuestao >>> 32));
+		result = prime * result + peso;
 		result = prime * result
 				+ ((respostas == null) ? 0 : respostas.hashCode());
 		return result;
@@ -95,15 +95,9 @@ public class Questao
 				return false;
 		} else if (!descricao.equals(other.descricao))
 			return false;
-		if (idQuestao == null) {
-			if (other.idQuestao != null)
-				return false;
-		} else if (!idQuestao.equals(other.idQuestao))
+		if (idQuestao != other.idQuestao)
 			return false;
-		if (peso == null) {
-			if (other.peso != null)
-				return false;
-		} else if (!peso.equals(other.peso))
+		if (peso != other.peso)
 			return false;
 		if (respostas == null) {
 			if (other.respostas != null)
@@ -112,9 +106,4 @@ public class Questao
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
 }
