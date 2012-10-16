@@ -4,7 +4,7 @@ mysql_select_db($banco,$conectar);
 
 if(isset($_GET['ok'])=='ok')
 {
-	//echo 'FunÃ§Ã£o logar ok';
+	//echo 'Função logar ok';
 	
 		$nome = ($_POST['nome']);
 		$email = ($_POST['email']);
@@ -15,13 +15,12 @@ if(isset($_GET['ok'])=='ok')
 										while($qtd_usuario =  mysql_fetch_array($verifica_login))
 										{
 											if($qtd_usuario > 0){
-																echo '<br />'.$qtd_usuario['nome'].'<br />'.$qtd_usuario['email'];
+																//echo '<br />'.$qtd_usuario['nome'].'<br />'.$qtd_usuario['email'];
 																
-																header("Location:questionario.php?idques=".$qtd_usuario['id_questionarios']."");
+																header("Location:questionario.php?idques=".$qtd_usuario['id_questionarios']."&iduser=".$qtd_usuario['id_usuarios']."");
 																}
-																elseif($qtd_usuario < 0){
-														 									header("Location:index.php?noticia=Usuario nÃ£o encontrado");
-																						}
+																else
+																	header("Location:index.php?noticia=Usuario não encontrado");
 										}
 																			
 										

@@ -9,8 +9,12 @@
 <body>
 <h5><a href="questionario.php">Voltar</a></h5>
 <h1>Administra&ccedil;&atilde;o do question&aacute;rio</h1>
-<h2>Formulario de cria&ccedil;&atilde;o de question&aacute;rio</h2>
+<h2>Menu</h2>
 
+<a href="#1"> Criar questionario </a><br />
+<a href="#1"> Relatorio de usuarios </a><br />
+<a href="#2"> Relatorio de questionarios </a><br />
+<a href="#3"> Relatorio de perguntas por questionarios </a><br />
 <form method="post" action="criacao.php?pgt=npgt" >
     <h4>Pergunta: </h4>
     <input type="text" id="pergunta" name="pergunta" size="80" />
@@ -18,7 +22,7 @@
     <input type="reset" value="Apagar" />
 </form>
 
-<?php 
+<?php
 if(isset($_GET['idper']))
 {
 	$idper = $_GET['idper'];

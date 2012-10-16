@@ -1,4 +1,4 @@
-<?php  
+<?php
 include("bd_conexao.php");
 mysql_select_db($banco,$conectar);
 
@@ -57,8 +57,9 @@ elseif(isset($_GET['calc_peso'])=='cpeso')
 			{
 
 				$nova_escolha = mysql_query("INSERT INTO escolhas(id_usuarios, id_questionarios, id_perguntas, id_respostas, id_pesos) VALUES ('$id_usuarios', '$id_questionarios', ".$id_pes['id_perguntas'].", '$id_resposta', ".$id_pes['pesos'].");");
+				
 			}
-			header('Location:questionario.php');
+			header('Location:questionario.php?idques='.$id_questionarios.'');
 }
 else
 		echo "Erro no envio!<br /><a href= 'javascript:history.back()'>Voltar</a>";

@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="folhaDeEstilo.css">
 <title>Administra&ccedil;&atilde;o</title>
 </head>
- 
+
 <body>
 <table border="1">
 <form method="post" action="login.php?ok=ok" >
