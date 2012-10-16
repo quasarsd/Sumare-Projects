@@ -3,10 +3,13 @@ package org.quasarsd.jprova.tester;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.cfg.AnnotationConfiguration;
+//import org.hibernate.service.ServiceRegistry;
+//import org.hibernate.service.ServiceRegistryBuilder;
 import org.quasarsd.jprova.dao.QuestaoDAO;
 import org.quasarsd.jprova.orm.Questao;
 
+@SuppressWarnings(value="deprecation")
 public class QuestaoTester {
 
 	/**
@@ -15,7 +18,8 @@ public class QuestaoTester {
 	public static void main(String[] args) {
 		
 		//ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().configure().buildServiceRegistry();
-		SessionFactory sessionFactory = null;
+		
+		SessionFactory sessionFactory = new AnnotationConfiguration().buildSessionFactory();;
 			
 		
 		

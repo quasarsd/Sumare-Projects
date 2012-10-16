@@ -1,7 +1,6 @@
 package org.quasarsd.jprova.dao;
 
 import org.hibernate.Session;
-import org.quasarsd.jprova.orm.Questao;
 import org.quasarsd.jprova.orm.Resposta;
 
 public class RespostaDAO
@@ -31,7 +30,7 @@ public class RespostaDAO
 		session.update(questao);
 		session.getTransaction().commit();
 	}
-	public Resposta pesquisar(Integer id)
+	public Resposta pesquisar(long id)
 	{
 		return (Resposta) session.load(Resposta.class, id);
 	}
