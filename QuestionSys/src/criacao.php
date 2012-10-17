@@ -37,12 +37,12 @@ elseif(isset($_GET['resp'])=='nresp')
 
 elseif(isset($_GET['calc_peso'])=='cpeso')
 {		
-		if(isset($_POST['idresp']))
+		if(!isset($_POST['idresp']))
 		{
-			$id_resposta = ($_POST['idresp']);
+			$id_resposta = "erro";
 		}else
 			{
-			$id_resposta = "erro";
+			$id_resposta = ($_POST['idresp']);
 			}
 			
 			$id_questionarios = ($_GET['idques']);
@@ -56,10 +56,10 @@ elseif(isset($_GET['calc_peso'])=='cpeso')
 			while($id_pes = mysql_fetch_array($pega_pesos))
 			{
 
-				$nova_escolha = mysql_query("INSERT INTO escolhas(id_usuarios, id_questionarios, id_perguntas, id_respostas, id_pesos) VALUES ('$id_usuarios', '$id_questionarios', ".$id_pes['id_perguntas'].", '$id_resposta', ".$id_pes['pesos'].");");
+				$nova_escolha = mysql_query("INSERT INTO escolhas(id_usuarios, id_questionarios, id_perguntas, id_respostas, pesos) VALUES ('$id_usuarios', '$id_questionarios', ".$id_pes['id_perguntas'].", '$id_resposta', ".$id_pes['pesos'].");");
 				
 			}
-			header('Location:questionario.php?idques='.$id_questionarios.'');
+			header("Location:questionario.php?idques=$id_questionarios&iduser=$id_usuarios");
 }
 else
 		echo "Erro no envio!<br /><a href= 'javascript:history.back()'>Voltar</a>";

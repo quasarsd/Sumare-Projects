@@ -7,7 +7,10 @@
 </head>
 
 <body>
-<h5><a href="questionario.php">Voltar</a></h5>
+<?php
+	include("logo.php");
+?>
+<a href="questionario.php"><h5>Voltar</h5></a>
 <h1>Administra&ccedil;&atilde;o do question&aacute;rio</h1>
 <h2>Menu</h2>
 

@@ -4,7 +4,7 @@ mysql_select_db($banco,$conectar);
 
 if(isset($_GET['ok'])=='ok')
 {
-	//echo 'FunÁ„o logar ok';
+	//echo 'Fun√ß√£o logar ok';
 	
 		$nome = ($_POST['nome']);
 		$email = ($_POST['email']);
@@ -20,7 +20,7 @@ if(isset($_GET['ok'])=='ok')
 																header("Location:questionario.php?idques=".$qtd_usuario['id_questionarios']."&iduser=".$qtd_usuario['id_usuarios']."");
 																}
 																else
-																	header("Location:index.php?noticia=Usuario n„o encontrado");
+																	header("Location:index.php?noticia=Usuario n√£o encontrado");
 										}
 																			
 										

@@ -7,6 +7,9 @@
 </head>
 
 <body>
+<?php
+	include("logo.php");
+?>
 <table border="1">
 <form method="post" action="login.php?ok=ok" >
   <tr>

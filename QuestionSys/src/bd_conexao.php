@@ -11,12 +11,7 @@ $conectar = mysql_connect($host,$user,$user_pass);
 if($conectar==true){
 echo "Conectado com sucesso!";
 }else{
-echo "Falha na conexão!";  
+echo "Falha na conexão!";
 }
 */
 ?>
-	<!--SELECT DISTINCT pgs.perguntas, pgs.id_perguntas, rps.respostas, ps.pesos
-										FROM respostas rps
-										INNER JOIN perguntas pgs ON (pgs.id_perguntas = rps.id_perguntas)
-										INNER JOIN pesos ps ON (ps.id_respostas = rps.id_respostas)
-										LIMIT 0,2-->
