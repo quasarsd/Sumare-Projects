@@ -31,5 +31,45 @@
     </tr>
 </form>
 </table>
+<center>
+<a href="index.php?cadastro=ok">Cadastro</a>
+
+<?php
+include("bd_conexao.php");
+mysql_select_db($banco,$conectar);
+
+if(isset($_GET['msg']) != '')
+{
+	echo '<br /><font color="#FFFFFF">'.$_GET['msg'].'</font>';
+}
+
+if(isset($_GET['cadastro']) == 'ok')
+{
+	echo '<form action="cadastro.php" method="post" name="cadastro">
+			<label>Nome: </label>
+			<input type="text" id="nome" name="nome" />
+			<br />
+            <label>Email: </label>
+            <input type="text" id="email" name="email" />';
+	$lista_questionario = mysql_query("SELECT *
+ 								   FROM questionarios")or die (mysql_error());
+	
+	echo '<br />
+          <label>Questionarios: </label>
+		  <select name="questionario" styleId=="questionario">';
+	while ($exibe_questionario = mysql_fetch_array($lista_questionario))
+	{
+		echo '<option value="'.$exibe_questionario['id_questionarios'].'">'.$exibe_questionario['nome_questionario'].'</option>';
+	}
+	echo '</select>';
+	echo '<br />
+		   <input type="submit" value="Cadastrar" />
+		  </form>';
+}
+
+?>
+
+</center>
+
 </body>
 </html>

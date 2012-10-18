@@ -33,17 +33,19 @@ mysql_select_db($banco,$conectar);
 							WHERE esc.id_usuarios = '.$iduser.' AND esc.id_questionarios = '.$idques.'")or die (mysql_error());
 	while ($exibe_escolhas = mysql_fetch_array($escolhas))
 	{
-	echo '<h1>'. $exibe_escolhas['titulo_questionario'].' </h1>';
-	if($exibe_escolhas['somatorio']>=30)
-	{
-		echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Excelente!<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].' pontos</u></font></h3>';
-	}elseif($exibe_escolhas['somatorio']>=11 && $exibe_escolhas['somatorio']<=29)
-	{
-		echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Razoavel<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].'pontos</u></font></h3>';
-	}elseif($exibe_escolhas['somatorio']>=0 && $exibe_escolhas['somatorio']<=10)
-	{
-		echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Ruim<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].'pontos</u></font></h3>';
-	}
+		echo '<h1>'.$exibe_escolhas['titulo_questionario'].'</h1>';
+		
+		if(($exibe_escolhas['somatorio']>=0) && ($exibe_escolhas['somatorio'])<=10)
+		{
+			echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Ruim<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].'pontos</u></font></h3>';
+		}elseif(($exibe_escolhas['somatorio']>=11) && ($exibe_escolhas['somatorio'])<=29)
+		{
+			echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Razoavel<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].'pontos</u></font></h3>';
+		}elseif($exibe_escolhas['somatorio']>=30)
+		{
+			echo '<h3><font color="#0000FF" style="font-family:Geneva, Arial, Helvetica, sans-serif">Excelente!!!<br />Resutado Final: <u>'.$exibe_escolhas['somatorio'].' pontos</u></font></h3>';
+		}
+	
 	}
 //---fim---Exibe SOMATORIO DO PESO DAS escolhas ---------------		
 
